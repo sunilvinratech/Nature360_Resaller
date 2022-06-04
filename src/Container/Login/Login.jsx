@@ -25,7 +25,7 @@ const Login = () => {
   return (
     <>
       <main className="Login min-h-[80vh] sm:min-h-[85vh] relative">
-        <div className="min-w-[18%] aspect-square shadow-inner shadow-2xl   bg-[#f7f6f7]  flex flex-col items-center justify-around rounded-sm">
+        <div className="min-w-[18%] aspect-square shadow-inner shadow-2xl border-[.5px] border-gray-400   bg-[#f7f6f7]  flex flex-col items-center justify-around rounded-sm">
           <h3 className="text-4xl text-violet-400">Login</h3>
           <form className=" flex flex-col items-center gap-3 mt-5 ">
             <div>
@@ -90,19 +90,26 @@ const Login = () => {
                 label="Remeber me"
                 sx={{ fontSize: "15px" }}
               ></FormControlLabel>
-              <h6 className="text-[15px] text-[royalblue]">Forget password?</h6>
+              <h6
+                className="text-[15px] text-[royalblue] cursor-pointer font-semibold"
+                onClick={() => Navigate("/forgetpassword")}
+              >
+                Forget password?
+              </h6>
             </div>
-            <button type={"submit"} className="btn1 bg-violet-400 mt-4">
+            <button type={"submit"} className="btn1 bg-violet-400 mt-4 font-semibold">
               Login
             </button>
           </form>
           <h5>Or</h5>
           <span
+            className="text-violet-500"
             style={{
               fontSize: "15px",
               color: "royalblue",
               marginBottom: "5px",
-              cursor: "pointer"
+              cursor: "pointer",
+              fontWeight:"bold",
             }}
             onClick={() => {
               Navigate("/registration");

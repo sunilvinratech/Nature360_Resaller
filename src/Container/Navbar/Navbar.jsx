@@ -43,7 +43,7 @@ const Navbar = () => {
                 </div>
                 <ul className="flex uppercase font-semibold gap-5 text-[16px]">
                     <li>
-                        <NavLink to={"#"}>Shop</NavLink>
+                        <NavLink to={"/shop"}>Shop</NavLink>
                     </li>
                     <li>
                         <NavLink to={"#"}>About</NavLink>
