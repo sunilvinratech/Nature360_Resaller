@@ -1,4 +1,4 @@
-import { InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { Button, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import React from "react";
 import "./Registration.css";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
@@ -11,8 +11,8 @@ const Registration = () => {
   return (
     <>
       <div className="Registration Login min-h-[80vh] sm:min-h-[85vh] relative">
-        <div className="w-[550px] aspect-square shadow-2xl border-[.5px] border-gray-400   bg-[#f7f6f7]  flex flex-col items-center justify-between rounded-sm">
-          <h3 className="text-4xl text-violet-500">Sign Up</h3>
+        <div className="  flex flex-col items-center justify-between rounded-sm">
+          <h3 className="text-4xl text-[#1976d2]">Sign Up</h3>
           <form className="w-full h-full flex flex-col gap-3 mt-7 ">
             <div className="flex w-full items-center justify-evenly">
               {/* First Place  */}
@@ -129,7 +129,7 @@ const Registration = () => {
                   <InputLabel forhtml={"name"} required>
                     Full Name
                   </InputLabel>
-                  <TextField type="text" id="name" size="small" />
+                  <TextField type="text" id="name" size="small" fullWidth />
                 </div>
                 <div>
                   <InputLabel forhtml={"tel"} required>
@@ -148,7 +148,7 @@ const Registration = () => {
                     minRows={4}
                     placeholder="Minimum 3 rows"
                     style={{
-                      width: 490,
+                      width: '470px',
                       padding: 5,
                       background: "transparent",
                       border: "1px solid gray",
@@ -159,12 +159,12 @@ const Registration = () => {
               </div>
             </div>
             <div className=" self-center flex flex-col items-center">
-              <button type="submit" className="btn1 self-center bg-violet-400">
+              <Button variant="contained" type="submit" className="btn1 self-cente">
                 Submit
-              </button>
+              </Button>
               <span>oR</span>
               <h3
-                className="font-semibold text-violet-600 cursor-pointer"
+                className="font-semibold text-[#1976d2] cursor-pointer"
                 onClick={() => Navigate("/login")}
               >
                 Login ?

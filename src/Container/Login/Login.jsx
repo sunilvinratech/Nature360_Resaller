@@ -7,6 +7,7 @@ import {
   TextField,
   FormControlLabel,
   Checkbox,
+  Button,
 } from "@mui/material";
 import { InputAdornment } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -25,8 +26,8 @@ const Login = () => {
   return (
     <>
       <main className="Login min-h-[80vh] sm:min-h-[85vh] relative">
-        <div className="min-w-[18%] aspect-square shadow-inner shadow-2xl border-[.5px] border-gray-400   bg-[#f7f6f7]  flex flex-col items-center justify-around rounded-sm">
-          <h3 className="text-4xl text-violet-400">Login</h3>
+        <div className="  flex flex-col items-center justify-around rounded-sm">
+          <h3 className="text-4xl text-[#1976d2]">Login</h3>
           <form className=" flex flex-col items-center gap-3 mt-5 ">
             <div>
               <InputLabel htmlFor={"text"} required>
@@ -97,9 +98,13 @@ const Login = () => {
                 Forget password?
               </h6>
             </div>
-            <button type={"submit"} className="btn1 bg-violet-400 mt-4 font-semibold">
+            <Button
+            variant="contained"
+              type={"submit"}
+              className="btn1 bg-violet-400 mt-4 font-semibold"
+            >
               Login
-            </button>
+            </Button>
           </form>
           <h5>Or</h5>
           <span
@@ -109,7 +114,7 @@ const Login = () => {
               color: "royalblue",
               marginBottom: "5px",
               cursor: "pointer",
-              fontWeight:"bold",
+              fontWeight: "bold",
             }}
             onClick={() => {
               Navigate("/registration");
