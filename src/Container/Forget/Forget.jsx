@@ -3,14 +3,15 @@ import { useState } from "react";
 import { Button, InputLabel, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+var FormData = require('form-data');
 const Forget = () => {
   const Navigate = useNavigate();
+  var data = new FormData();
   const [CheckEmail, setCheckEmail] = useState('');
   const handleSubmit=async (event)=>{
         event.preventDefault();
-          await axios.post('http://54.87.154.104:8000/forgot_password/',{
-          email:CheckEmail
-        }).then(response=>{
+        data.append('email',CheckEmail);
+          await axios.post('http://54.87.154.104:8000/forgot_password/',data).then(response=>{
           console.log(response)
         }).catch(error=>{
           console.log(error)
