@@ -229,16 +229,16 @@ const Registration = () => {
                     });
                   }}
                 >
-                  <MenuItem value={"none"}>
+                  <MenuItem value={"NONE"}>
                     <em>none</em>
                   </MenuItem>
-                  <MenuItem value={"Male"}>
+                  <MenuItem value={"MALE"}>
                     <em>Male</em>
                   </MenuItem>
-                  <MenuItem value={"Female"}>
+                  <MenuItem value={"FEMALE"}>
                     <em>Female</em>
                   </MenuItem>
-                  <MenuItem value={"Other"}>
+                  <MenuItem value={"OTHER"}>
                     <em>Other</em>
                   </MenuItem>
                 </Select>

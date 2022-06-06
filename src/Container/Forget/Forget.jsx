@@ -12,7 +12,7 @@ const Forget = () => {
         event.preventDefault();
         data.append('email',CheckEmail);
           await axios.post('http://54.87.154.104:8000/forgot_password/',data).then(response=>{
-          console.log(response)
+         
         }).catch(error=>{
           console.log(error)
         })

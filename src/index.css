@@ -53,8 +53,12 @@
   font-size: 13px !important;
   color: #1976d2 !important;
 }
-.css-sghohy-MuiButtonBase-root-MuiButton-root {
+.MuiButton-root{
+  background: #E1BB73 !important;
   border-radius: 50rem !important;
+  color:white !important ;
+  font-weight: 500 !important;
+
 }
 .MuiInputLabel-asterisk {
   color: red !important;
