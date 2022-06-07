@@ -2,12 +2,12 @@ import { Button, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import "./Registration.css";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-const labelstylle = {
-  fontSize: "13px",
-};
+import Country from "../county.json"
+// const labelstylle = {
+//   fontSize: "13px",
+// };
 const Registration = () => {
   const Navigate = useNavigate();
   const [RegFormState, setRegFormState] = useState({
@@ -153,15 +153,12 @@ const Registration = () => {
                   <MenuItem value={"none"}>
                     <em>none</em>
                   </MenuItem>
-                  <MenuItem value={"India"}>
-                    <em>India</em>
-                  </MenuItem>
-                  <MenuItem value={"China"}>
-                    <em>China</em>
-                  </MenuItem>
-                  <MenuItem value={"USA"}>
-                    <em>USA</em>
-                  </MenuItem>
+                   {Country.map(item=>{
+                     return  <MenuItem value={item.code}>
+                     {item.name}
+                   </MenuItem>
+                   })}
+                
                 </Select>
               </div>
               <div>
