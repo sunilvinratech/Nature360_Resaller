@@ -30,7 +30,11 @@ const Login = () => {
     await axios
       .post("http://54.87.154.104:8000/login/", formState)
       .then((response) => {
-        console.log(response);
+        const { data } = response;
+        if (data.token) {
+          Navigate("/shop");
+          localStorage.setItem("token", data.token);
+        }
       })
       .catch((error) => {
         console.log(error);

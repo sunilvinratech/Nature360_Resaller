@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar/Sidebar";
 import Top from "./Top/Top";
 
 const Shop = () => {
+  console.log(localStorage.getItem('token'))
   return (
     <div className="w-full">
       <Top />

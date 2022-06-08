@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import Main from "./Main";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Container/Home/Home";
 import Login from "./Container/Login/Login";
 import Registration from "./Container/Registration/Registration";
 import Shop from "../src/Container/Shop/Shop";
@@ -15,8 +14,8 @@ function App() {
     <div className="w-full">
       <Routes>
         <Route path="/" element={<Main />}>
-          <Route index element={<Home />} />
-          <Route path="login" element={<Login />} />.
+          <Route index element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/forgetpassword" element={<Forget />} />
         </Route>
