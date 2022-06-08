@@ -60,8 +60,20 @@
   font-weight: 500 !important;
 
 }
-.MuiInputLabel-asterisk {
-  color: red !important;
+.input{
+  outline:0;
+  padding: .5rem 1rem;
+  border: 1px solid lightgray;
+  border-radius: 50rem;
+
+}
+.otp{
+  background-color: green !important;
+  margin-left: 5px !important;
+}
+
+.MuiRating-icon{
+  color: #E1BB73 !important;
 }
 
 @tailwind base;

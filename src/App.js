@@ -4,11 +4,12 @@ import Main from "./Main";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Container/Home/Home";
 import Login from "./Container/Login/Login";
-import Registration from "./Container/Registration/Registration";
+// import Registration from "./Container/Registration/Registration";
 import Shop from "../src/Container/Shop/Shop";
 import ShopIItems from "./Container/Shop/ShopItems/ShopIItems";
 import Forget from "./Container/Forget/Forget";
 import ShoppingCardSinglepage from "./Container/Shop/ShoppingCardSinglePage/ShoppingCardSinglepage";
+import Registration2 from "./Container/Registation2/Registration2";
 const LazyShop = React.lazy(() => import("../src/Container/Shop/Shop"));
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/" element={<Main />}>
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />.
-          <Route path="/registration" element={<Registration />} />
+          <Route path="/registration" element={<Registration2/>} />
           <Route path="/forgetpassword" element={<Forget />} />
         </Route>
         <Route

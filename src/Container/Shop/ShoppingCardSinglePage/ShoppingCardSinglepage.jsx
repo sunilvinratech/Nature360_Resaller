@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "./Asset/p1.jpg";
+import PresonalReview from "./PersonalReview/PresonalReview";
 import Review from "./Review/Review";
 const ShoppingCardSinglepage = () => {
   return (
@@ -65,9 +66,14 @@ const ShoppingCardSinglepage = () => {
               </button>
             </div>
             {/* Reviwe Start  */}
-            <div>
-              <h3 className="text-gray-900 font-semibold mb-3">Reviews</h3>
+            <h3 className="text-gray-900 font-semibold mb-3">Reviews</h3>
+            <div className="flex flex-col items-baseline gap-3 max-h-96 overflow-y-scroll scrollbar scrollbar-thin  scrollbar-thumb-gray-300 scroll-smooth scrollbar-track-transparent">
               <Review />
+              <Review />
+              <Review />
+            </div>
+            <div>
+              <PresonalReview />
             </div>
           </div>
         </div>

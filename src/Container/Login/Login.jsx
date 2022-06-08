@@ -29,7 +29,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await axios
-      .post("http://54.87.154.104:8000/login/", formState)
+      .post("https://54.87.154.104:8000/login/", formState)
       .then((response) => {
         console.log(response);
       })
@@ -44,7 +44,7 @@ const Login = () => {
     <>
       <main className="Login min-h-[80vh] sm:min-h-[85vh] relative">
         <div className="  flex flex-col items-center justify-around rounded-sm">
-          <h3 className="text-4xl text-[#1976d2]">Login</h3>
+          <h3 className="text-4xl text-[#f8a73d]">Login</h3>
           <form
             className=" flex flex-col items-center gap-3 mt-5 "
             onSubmit={handleSubmit}

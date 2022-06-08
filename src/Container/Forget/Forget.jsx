@@ -21,7 +21,7 @@ const Forget = () => {
     <>
       <main className="Login min-h-[80vh] sm:min-h-[85vh] relative">
         <div className="  mb-10  flex flex-col items-center justify-around rounded-sm">
-          <h3 className="text-4xl  text-[#1976d2]">Forget Password</h3>
+          <h3 className="text-4xl  text-[#f8a73d]">Forget Password</h3>
           <form className=" flex flex-col items-center gap-3 mt-10 " onSubmit={handleSubmit}>
             <div>
               <InputLabel htmlFor={"text"} required>
