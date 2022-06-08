@@ -3,6 +3,7 @@ import "./Login.css";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import axios from "axios";
+
 import {
   InputLabel,
   TextField,
@@ -47,7 +48,7 @@ const Login = () => {
     <>
       <main className="Login min-h-[80vh] sm:min-h-[85vh] relative">
         <div className="  flex flex-col items-center justify-around rounded-sm">
-          <h3 className="text-4xl text-[#1976d2]">Login</h3>
+          <h3 className="text-4xl text-[#f8a73d]">Login</h3>
           <form
             className=" flex flex-col items-center gap-3 mt-5 "
             onSubmit={handleSubmit}
