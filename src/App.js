@@ -15,15 +15,6 @@ function App() {
     <div className="w-full">
       <Routes>
         <Route path="/" element={<Main />}>
-<<<<<<< HEAD
-          <Route index element={<Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registration" element={<Registration />} />
-=======
-          <Route index element={<Home />} />
-          <Route path="login" element={<Login />} />.
-          <Route path="/registration" element={<Registration2/>} />
->>>>>>> 64866a7dda34298e4f5e7d472ffd77af7d526326
           <Route path="/forgetpassword" element={<Forget />} />
         </Route>
         <Route
