@@ -3,7 +3,7 @@ import "./App.css";
 import Main from "./Main";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Container/Login/Login";
-import Registration from "./Container/Registration/Registration";
+import Registration from "./Container/Registation2/Registration2"
 import ShopIItems from "./Container/Shop/ShopItems/ShopIItems";
 import Forget from "./Container/Forget/Forget";
 import ShoppingCardSinglepage from "./Container/Shop/ShoppingCardSinglePage/ShoppingCardSinglepage";
