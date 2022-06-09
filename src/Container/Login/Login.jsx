@@ -3,7 +3,7 @@ import "./Login.css";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import axios from "axios";
-
+import Cookie from "js-cookie";
 import {
   InputLabel,
   TextField,
@@ -32,9 +32,13 @@ const Login = () => {
       .post("http://54.87.154.104:8000/login/", formState)
       .then((response) => {
         const { data } = response;
+        console.log(data);
         if (data.token) {
           Navigate("/shop");
           localStorage.setItem("token", data.token);
+          Cookie.set("token", data.token, {
+            expires: 14,
+          });
         }
       })
       .catch((error) => {

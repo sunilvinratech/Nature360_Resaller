@@ -13,9 +13,6 @@ const Registration2 = () => {
     mobile: "",
     full_name: "",
   });
-  const handleClick = () => {
-    setotpState(otpState === "false" ? "true" : "false");
-  };
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formState);
@@ -28,13 +25,10 @@ const Registration2 = () => {
           <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
             <div className="flex flex-col">
               <InputLabel required>Email address</InputLabel>
-              <input
+              <TextField
                 type={"email"}
-                name="email"
-                required
-                size="small"
-                className="input"
                 value={formState.email}
+                required
                 onChange={(e) =>
                   setformState({
                     ...formState,
@@ -42,68 +36,47 @@ const Registration2 = () => {
                     email: e.target.value,
                   })
                 }
+                size="small"
               />
             </div>
             <div className="flex flex-col">
               <InputLabel required>Password</InputLabel>
-              <input
+              <TextField
                 type={"password"}
-                name="password"
                 required
-                size="small"
-                className="input"
                 value={formState.password}
                 onChange={(e) =>
                   setformState({ ...formState, password: e.target.value })
                 }
+                size="small"
               />
             </div>
             <div className="flex flex-col">
               <InputLabel required>Phone Number</InputLabel>
               <div className="flex items-center gap-3 flex-col">
                 <div className="flex items-center">
-                  <input
+                  <TextField
                     type={"tel"}
                     required
-                    size="small"
-                    className="input"
                     value={formState.mobile}
                     onChange={(e) =>
                       setformState({ ...formState, mobile: e.target.value })
                     }
-                  />
-                  <Button size="small" className="otp" onClick={handleClick}>
-                    OTP
-                  </Button>
-                </div>
-                <div
-                  className="flex items-center"
-                  style={{ display: otpState === "false" ? "none" : "block" }}
-                >
-                  <input
-                    type={"tel"}
-                    required
                     size="small"
-                    className="input"
-                    placeholder="Please Enter OTP"
                   />
-                  <Button size="small" className="otp">
-                    Verify
-                  </Button>
                 </div>
               </div>
             </div>
             <div className="flex flex-col mb-1">
               <InputLabel required>Full Name</InputLabel>
-              <input
-                type={"text"}
+              <TextField
                 required
-                size="small"
-                className="input"
+                type={"text"}
                 value={formState.full_name}
                 onChange={(e) =>
                   setformState({ ...formState, full_name: e.target.value })
                 }
+                size="small"
               />
             </div>
             <Button type="submit">Submit</Button>
