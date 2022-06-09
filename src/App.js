@@ -4,7 +4,6 @@ import Main from "./Main";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Container/Login/Login";
 import Registration from "./Container/Registration/Registration";
-import { useNavigate } from "react-router-dom";
 import Shop from "../src/Container/Shop/Shop";
 import ShopIItems from "./Container/Shop/ShopItems/ShopIItems";
 import Forget from "./Container/Forget/Forget";
