@@ -29,7 +29,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await axios
-      .post("http://54.87.154.104:8000/login/", formState)
+      .post("http://3.82.226.195/login/", formState)
       .then((response) => {
         const { data } = response;
         console.log(data);
