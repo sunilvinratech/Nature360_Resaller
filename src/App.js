@@ -1,39 +1,45 @@
-import React, { useEffect } from "react";
-import "./App.css";
-import Main from "./Main";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import Login from "./Container/Login/Login";
-import Registration from "./Container/Registation2/Registration2";
-import ShopIItems from "./Container/Shop/ShopItems/ShopIItems";
-import Forget from "./Container/Forget/Forget";
-import ShoppingCardSinglepage from "./Container/Shop/ShoppingCardSinglePage/ShoppingCardSinglepage";
-import Verify from "./Container/Registation2/Verifypassword/Verify";
-import Shop from "../src/Container/Shop/Shop";
-// const LazyShop = React.lazy(() => import("../src/Container/Shop/Shop"));
-function App() {
-  var token = localStorage.getItem("token");
-  const Navigate = useNavigate();
+import * as React from "react";
+import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 
+import Layout from "./Component/Layout";
+import LoginPage from "./Pages/Login/Login";
+import Registration2 from "./Pages/Registation2/Registration2";
+import ForgetPassword from "./Pages/Forget/Forget";
+import Shop from "./Pages/Shop/Shop";
+import { useAuth } from "./hook";
+
+const ProtectedRoute = ({ user, redirectPath = "/login" }) => {
+  if (!user) {
+    return <Navigate to={redirectPath} replace />;
+  }
+
+  return <Outlet />;
+};
+
+const AuthenticateRoute = ({ user, redirectPath = "/" }) => {
+  if (user) {
+    return <Navigate to={redirectPath} replace />;
+  }
+
+  return <Outlet />;
+};
+
+export default function App() {
+  const { session } = useAuth();
   return (
-    <div className="w-full">
-      <Routes>
-        <Route path="/" element={<Main />}>
-          <Route index element={<Login />} />
-          <Route path="login" element={<Login />} />
-          <Route path="registration" element={<Registration />} />
-          <Route path="forgetpassword" element={<Forget />} />
+    <Routes>
+      <Route element={<Layout />}>
+        <Route element={<AuthenticateRoute user={session} />}>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/registration" element={<Registration2 />} />
+          <Route path="/forgetpassword" element={<ForgetPassword />} />
         </Route>
-        <Route path="/shop" element={<Shop />}>
-          <Route
-            path="singleshoppingcard"
-            element={<ShoppingCardSinglepage />}
-          />
-          <Route index element={<ShopIItems />} />
+
+        <Route path="/" element={<ProtectedRoute user={session} />}>
+          <Route path="/" element={<Shop />} />
+         
         </Route>
-        <Route path="/varify" element={<Verify />} />
-      </Routes>
-    </div>
+      </Route>
+    </Routes>
   );
 }
-
-export default App;
