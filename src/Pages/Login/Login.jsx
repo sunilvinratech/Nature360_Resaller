@@ -25,7 +25,7 @@ const Login = () => {
   });
 
   const Navigate = useNavigate();
-  const {signin,isLoading} = useAuth();
+  const {signin,isLoading,errorMessage} = useAuth();
   const handleSubmit = async (event) => {
     event.preventDefault();
     signin(formState)
@@ -38,6 +38,7 @@ const Login = () => {
       <main className="Login min-h-[80vh] sm:min-h-[85vh] relative">
         <div className="  flex flex-col items-center justify-around rounded-sm">
           <h3 className="text-4xl text-[#f8a73d]">Login</h3>
+          
           <form
             className=" flex flex-col items-center gap-3 mt-5 "
             onSubmit={handleSubmit}
@@ -54,6 +55,8 @@ const Login = () => {
                 size={"small"}
                 style={inputFiled}
                 value={formState.username}
+                error={errorMessage ? true : false}
+                helperText={errorMessage}
                 onChange={(e) => {
                   setformState({ ...formState, username: e.target.value });
                 }}
