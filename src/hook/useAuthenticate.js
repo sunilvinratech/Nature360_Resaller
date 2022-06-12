@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useFetch, useLocalStorage,useSession } from "./";
 
 export const useAuth = () => {
@@ -7,20 +8,31 @@ export const useAuth = () => {
     "user-session",
     null
   );
+  const { storedValue:storedRegisterValue, setLocalStorage: setRegisterLocalStorage } = useLocalStorage(
+    "user-register",
+    null
+  );
+  const [errorMessage,setErrorMessage] = React.useState(null);
+
+  const Navigate = useNavigate();
+
   const onSuccess = React.useCallback(
     (response) => {
       setLocalStorage(response);
       saveJWT(response.token)
-      window.location.href = '/';
+      setErrorMessage(null)
+      Navigate('/')
     },
-    [setLocalStorage,saveJWT]
+    [setLocalStorage,saveJWT,Navigate,setErrorMessage]
   );
 
   const onFailure = React.useCallback(
     (error) => {
-      console.log(error);
+      Object.keys(error).map((value, index) => {
+        setErrorMessage(error[value][0])
+      });
     },
-    []
+    [setErrorMessage]
   );
 
   const [{ isLoading }, doFetch] = useFetch({
@@ -49,16 +61,34 @@ export const useAuth = () => {
       method: "post",
       data: data,
       onSuccess:(res)=>{
-        console.log(res)
+        alert(res.status)
+        Navigate('/login')
       },
       onFailure: (error) =>{
-        console.log(error)
+        setErrorMessage(error.status)
       }
     });
   };
   const confirmPasswordReset = (code, password) => {
     return true;
   };
+
+  const verifyOtp = React.useCallback((otp)=>{
+    let formData = new FormData();
+    formData.append('otp',otp);
+    formData.append('username',storedRegisterValue?.user?.username);
+    doFetch('/verify_otp/',{
+      method: "post",
+      data: formData,
+      onSuccess:(res)=>{
+        setRegisterLocalStorage(null)
+        Navigate('/login')
+      },
+      onFailure: (error) =>{
+        setErrorMessage(error.status)
+      }
+    });
+  },[doFetch,storedRegisterValue,setRegisterLocalStorage,Navigate,setErrorMessage])
 
   // Return the user object and auth methods
   return {
@@ -68,6 +98,8 @@ export const useAuth = () => {
     signout,
     sendPasswordResetEmail,
     confirmPasswordReset,
+    verifyOtp,
     isLoading,
+    errorMessage
   };
 };

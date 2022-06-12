@@ -1,7 +1,15 @@
 import { Button, InputLabel, TextField } from "@mui/material";
 import React from "react";
+import { useAuth } from "../../../hook";
 
 const Verify = () => {
+  const [otp, setOtp] = React.useState("");
+  const { verifyOtp, isLoading, errorMessage } = useAuth();
+
+  const handleClick = React.useCallback(() => {
+    verifyOtp(otp)
+  }, [verifyOtp]);
+
   return (
     <>
       <div className="flex-full min-h-screen grid place-items-center ">
@@ -12,9 +20,23 @@ const Verify = () => {
               <InputLabel required htmlFor="">
                 Please Enter Your OTP
               </InputLabel>
-              <TextField type={"text"} required size="small" />
+              <TextField
+                type={"text"}
+                required
+                size="small"
+                error={errorMessage ? true : false}
+                onChange={(event) => {
+                  setOtp(event.target.value);
+                }}
+              />
             </div>
-            <Button variant="outlined">Verify</Button>
+            <Button
+              onClick={handleClick}
+              variant="outlined"
+              isLoading={isLoading}
+            >
+              Verify
+            </Button>
           </form>
         </div>
       </div>
